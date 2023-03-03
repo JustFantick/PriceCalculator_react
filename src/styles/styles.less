@@ -1,18 +1,44 @@
 @import url('./nullstyle');
-@import url('../fonts/fonts.less');
-//@import url('../fonts/icons-font.less');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
 @import url('./useful.less');
+
+body {
+	font-family: 'Inter', sans-serif;
+}
 
 .wrapper {
 	width: 100%;
 	min-height: 100vh;
 	overflow: hidden;
 
-	background-color: gray;
-	color: black;
+	background-color: #252b37;
+	color: #164a6a;
 
-	&__container {}
+	padding: 25px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-@import url('./FUBs.less'); //frequently used blocks
+.form-block {
+	width: 100%;
+	padding: #adapt(25, 15)[@value];
+	overflow: hidden;
+	background-color: white;
+
+	max-width: 850px;
+
+	&.ranges {
+		border-radius: 15px 15px 0 0;
+		border-bottom: 5px solid #252b37;
+	}
+
+	&.chart {
+		border-radius: 0 0 15px 15px;
+	}
+}
+
+@import url('../components/ranges/ranges.less');
+@import url('../components/chart/chart.less');

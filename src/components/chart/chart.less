@@ -1,0 +1,142 @@
+.chart {
+	color: black;
+
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	row-gap: 10px;
+	column-gap: #adapt(15, 7)[@value];
+
+	&__label {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: #adapt(15, 7)[@value];
+
+		@media (max-width: 600px) {
+			flex-direction: column-reverse;
+		}
+
+		font-size: #adapt(26, 15)[@value];
+		line-height: 1.5;
+
+		img {
+			max-height: 40px;
+			max-width: 40px;
+			object-fit: cover;
+		}
+	}
+
+	&__progress-bar-container {
+		padding: 5px 15px 5px 0;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		&.backblaze .progress-bar.lowest {
+			background-color: #ff0000;
+		}
+
+		&.bunny .progress-bar.lowest {
+			background-color: #ff9d0b;
+		}
+
+		&.scaleway .progress-bar.lowest {
+			background-color: #4f0599;
+		}
+
+		&.vultr .progress-bar.lowest {
+			background-color: #4a86e8;
+		}
+	}
+
+	@media (max-width: 600px) {
+		transition: all 0.5s ease-in-out;
+
+		&__label {
+			&.grid-label-1 {
+				grid-area: label1;
+			}
+
+			&.grid-label-2 {
+				grid-area: label2;
+			}
+
+			&.grid-label-3 {
+				grid-area: label3;
+			}
+
+			&.grid-label-4 {
+				grid-area: label4;
+			}
+		}
+
+		&__progress-bar-container {
+			&.backblaze {
+				grid-area: bar1;
+			}
+
+			&.bunny {
+				grid-area: bar2;
+			}
+
+			&.scaleway {
+				grid-area: bar3;
+			}
+
+			&.vultr {
+				grid-area: bar4;
+			}
+		}
+
+		grid-template-areas: 'bar1 bar2 bar3 bar4'
+		'label1 label2 label3 label4';
+
+		grid-template-rows: 300px auto;
+		grid-template-columns: repeat(4, 1fr);
+
+		&__progress-bar-container {
+			flex-direction: column-reverse;
+		}
+	}
+}
+
+.bunny__radio,
+.scaleway__radio {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+
+	@media (max-width: 600px) {
+		align-items: center;
+	}
+
+	label {
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 5px;
+		font-size: #adapt(22, 12)[@value];
+	}
+}
+
+.progress-bar {
+	background-color: #c3c3c3;
+	border: 1px solid black;
+	height: 100%;
+	width: 0;
+
+	@media (max-width: 600px) {
+		height: 0%;
+		width: 100%;
+	}
+
+	transition: all 0.3s ease-in-out;
+}
+
+.progress-bar-label {
+	font-size: #adapt(26, 16)[@value];
+	color: black;
+}
