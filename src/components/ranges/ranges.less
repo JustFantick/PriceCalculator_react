@@ -9,6 +9,11 @@
 
 	&__item {
 		min-width: #adapt(350, 250)[@value];
+
+		@media (min-width: 1320px) {
+			min-width: 350px;
+		}
+
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
